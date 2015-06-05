@@ -1,4 +1,4 @@
-package ar.gov.santafe.meduc.services.asistencias.util;
+package ar.gov.santafe.meduc.services.notificacciones.util;
 
 import java.io.IOException;
 
