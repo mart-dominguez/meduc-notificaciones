@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+   <properties>
+	<entry key="mensajesXUsuario">
+		select distinct mu.mensaje from NTMensajeXUsuario mu
+		where mu.usuario.usuario = :p_usuario 
+		and mu.mensaje.configuracion.tipo in (:pTipos)
+	</entry>
+	<entry key="mensajesPendientes">
+		select count( distinct mu.NT_ID_MENSAJE) from NT_MENSAJE_X_USUARIO mu,AD_USUARIO U
+		where u.id_usuario = mu.ad_id_usuario  
+		and u.USUARIO  = :P_USUARIO
+		and mu.NT_ID_ESTADO is null
+	</entry>
+	<entry key="mensajesXUsuarioDetalle">
+		select distinct mu from NTMensajeXUsuario mu
+		where mu.usuario.usuario = :p_usuario 
+		and   mu.mensaje = :p_mensaje 
+	</entry>
+ </properties>  
